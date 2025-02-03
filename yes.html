@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #fd788b, #feb1b7, #fdcbca, #febecc, #fe6694);
+            background-size: 400% 400%;
+            animation: gradientAnimation 20s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            padding: 20px;
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: #402ecc;
+            font-family: 'Geist Sans', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            font-size: 50px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #555;
+        }
+
+        img {
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .next-btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #402ecc;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .next-btn:hover {
+            background-color: #2a1b7a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/cat.gif" alt="cat" width="220" height="390">
+        <h1>YAY! You made my day! ❤️</h1>
+        <p>Wait don't leave, there's more!</p>
+        <button class="next-btn" onclick="window.location.href='movie-selection.html'">Next</button>
+    </div>
+</body>
+</html>

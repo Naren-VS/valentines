@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Her Out</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Sans:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #fd788b, #feb1b7, #ffd0cf, #febecc, #fe6694);
+            background-size: 400% 400%;
+            animation: gradientAnimation 20s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            padding: 20px;
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: #e74c3c;
+            font-family: 'Geist Sans', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            font-size: 50px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        button {
+            padding: 13px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+
+        #yesButton {
+            background-color: #a7c957;
+            box-shadow: #386641 4px 4px 0px;
+        }
+
+        #noButton {
+            background-color: #ef233c;
+            box-shadow: hsl(341, 100%, 30%) 4px 4px 0px;
+            transition: transform 0.3s ease;
+        }
+
+        button:active {
+            transform: translateY(4px) translateX(4px);
+            box-shadow: #094c66 0px 0px 0px;
+        }
+
+        img {
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/cat-rose.jpeg" alt="cat-rose" width="300" height="300">
+        <h1>WILL YOU BE MY VALENTINE?</h1>
+
+        <div class="btn-container">
+            <button id="yesButton" onclick="handleYesClick()">Yes</button>
+            <button id="noButton" onclick="window.location.href='#'">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const container = document.querySelector('.container');
+
+        let noButtonOffset = { x: 0, y: 0 };
+
+        noButton.addEventListener('mouseover', () => {
+            const containerRect = container.getBoundingClientRect();
+            const maxX = containerRect.width - noButton.offsetWidth;
+            const maxY = containerRect.height - noButton.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
+
+        function handleYesClick() {
+            yesButton.style.transform = 'scale(1.1)';
+            yesButton.style.transition = 'transform 0.2s ease-out';
+
+            setTimeout(() => {
+                window.location.href = 'yes.html';
+            }, 200);
+        }
+
+        noButton.addEventListener('click', () => {
+            noButton.style.transform = `translate(0, 0)`;
+        });
+    </script>
+</body>
+</html>
